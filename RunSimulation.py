@@ -15,6 +15,10 @@ import os
 import subprocess
 import json
 
+simexists = os.path.isdir("simulation") 
+if not simexists:
+  os.mkdir("simulation") 
+
 os.environ["LD_LIBRARY_PATH"]= "/tools/Xilinx/.xinstall/Vivado_2020.2/lib/lnx64.o:/tools/Xilinx/Vivado/2020.2/lib/lnx64.o:/tools/Xilinx/.xinstall/Vivado_2020.2/lib/lnx64.o/SuSE/"
 
 VIVADO_BIN = "/tools/Xilinx/Vivado/2020.2/bin/"
