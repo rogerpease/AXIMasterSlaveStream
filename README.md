@@ -1,5 +1,5 @@
 # AXIMasterSlaveStream
-Repo for AXIMasterStreamSlave Tutorial
+Repo for AXIMasterSlaveStream Tutorial
 
 
 ./RunSimulation.py          # should compile, build the model and run the testbench.
