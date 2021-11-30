@@ -15,6 +15,7 @@
 	)
 	(
 		// Users to add ports here
+                // MASTER UPDATE 1: 
 		input masterStartStream,
 		input masterResetStream, 
 		input [31:0] masterStreamFirstValue, 
@@ -116,6 +117,9 @@
 	        // presence of valid streaming data                               
 	        //if ( count == 0 )                                                 
 	        //  begin                                                           
+
+                // MASTER UPDATE 2: 
+
 	        if (masterStartStream) 
 	            mst_exec_state  <= SEND_STREAM;                              
 	        //  end                                                             
@@ -125,6 +129,7 @@
 	        //  end                                                             
 	                                                                          
 	      SEND_STREAM:                                                        
+
 	        // The example design streaming master functionality starts       
 	        // when the master drives output tdata from the FIFO and the slave
 	        // has finished storing the S_AXIS_TDATA                          
@@ -137,6 +142,7 @@
 	              mst_exec_state <= SEND_STREAM;                                
 	            end                              
 	      STREAM_DONE:
+                // MASTER UPDATE 3: 
 	        if (masterResetStream) 
 	            mst_exec_state <= IDLE;
 	        else
@@ -226,6 +232,7 @@
 	        end                                          
 	      else if (tx_en)// && M_AXIS_TSTRB[byte_index]  
 	        begin                                        
+                  // MASTER UPDATE 4: 
 	          stream_data_out <= read_pointer + masterStreamFirstValue;   
 	        end                                          
 	    end                                              

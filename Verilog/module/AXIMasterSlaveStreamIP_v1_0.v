@@ -69,11 +69,12 @@
 		input wire  s00_axis_tvalid
 	);
 
+        // TOP UPDATE 1: 
 	wire  [2:0] slaveStreamReadRegister;
 	wire  [31:0] slaveStreamReadValue; 
 	
 	wire masterStartStream;
-    wire masterResetStream; 
+        wire masterResetStream; 
 	wire [31:0] masterStreamFirstValue; 
 
 
@@ -82,10 +83,11 @@
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) AXIMasterSlaveStreamIP_v1_0_S00_AXI_inst (
-	    .masterStartStream(masterStartStream),
+                // TOP UPDATE 2: 
+	        .masterStartStream(masterStartStream),
 		.masterResetStream(masterResetStream), 
 		.masterStreamFirstValue(masterStreamFirstValue), 
-	    .slaveStreamReadRegister(slaveStreamReadRegister),
+    	        .slaveStreamReadRegister(slaveStreamReadRegister),
 		.slaveStreamReadValue(slaveStreamReadValue), 
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),
@@ -116,6 +118,7 @@
 		.C_M_START_COUNT(C_M00_AXIS_START_COUNT)
 	) AXIMasterSlaveStreamIP_v1_0_M00_AXIS_inst (
         .masterStartStream(masterStartStream),
+                // TOP UPDATE 3: 
 		.masterResetStream(masterResetStream), 
 		.masterStreamFirstValue(masterStreamFirstValue), 
 		.M_AXIS_ACLK(m00_axis_aclk),
@@ -131,6 +134,7 @@
 	AXIMasterSlaveStreamIP_v1_0_S00_AXIS # ( 
 		.C_S_AXIS_TDATA_WIDTH(C_S00_AXIS_TDATA_WIDTH)
 	) AXIMasterSlaveStreamIP_v1_0_S00_AXIS_inst (
+                // TOP UPDATE 4: 
 		.slaveStreamReadRegister(slaveStreamReadRegister),
 		.slaveStreamReadValue(slaveStreamReadValue), 
 

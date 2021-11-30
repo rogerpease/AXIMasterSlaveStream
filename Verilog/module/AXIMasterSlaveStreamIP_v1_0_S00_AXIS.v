@@ -13,6 +13,7 @@
 	)
 	(
 		// Users to add ports here
+                // SLAVESTREAM UPDATE 1: 
 		input    [2:0] slaveStreamReadRegister,
 		output  [31:0] slaveStreamReadValue, 
 
@@ -160,6 +161,7 @@
 	          stream_data_fifo[write_pointer] <= S_AXIS_TDATA[(byte_index*8+7) -: 8];
 	        end  
 	    end  
+                // SLAVESTREAM UPDATE 2: 
 	    assign slaveStreamReadValue[(byte_index*8)+7 -:8] = stream_data_fifo[slaveStreamReadRegister];
 	  end		
 	endgenerate
